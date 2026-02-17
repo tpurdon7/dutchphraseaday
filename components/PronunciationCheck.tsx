@@ -99,7 +99,7 @@ export const PronunciationCheck = ({
           disabled={!canCheckDictation}
           className="mt-2 rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-60"
         >
-          Check pronunciation
+          Check result
         </button>
       </div>
       {typeof bestScore === "number" ? (

@@ -15,6 +15,7 @@ export type LearnedDay = {
   learnedAt: string;
   bestScore?: number;
   lastTranscript?: string;
+  source?: "daily" | "learn_more";
 };
 
 export type PracticeRecord = {

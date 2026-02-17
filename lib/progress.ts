@@ -26,6 +26,22 @@ export const getPhraseIdForDay = (dayNumber: number): number => {
   return clamp(dayNumber, 1, PHRASE_COUNT);
 };
 
+export const getPhraseIdForDayExcluding = (dayNumber: number, excludedPhraseIds: Set<number>): number => {
+  const availableIds: number[] = [];
+  for (let id = 1; id <= PHRASE_COUNT; id += 1) {
+    if (!excludedPhraseIds.has(id)) {
+      availableIds.push(id);
+    }
+  }
+
+  if (!availableIds.length) {
+    return 1;
+  }
+
+  const index = clamp(dayNumber - 1, 0, availableIds.length - 1);
+  return availableIds[index];
+};
+
 export const getProgressPercent = (learnedCount: number): number => {
   const raw = (learnedCount / PHRASE_COUNT) * 100;
   return Math.round(raw * 10) / 10;

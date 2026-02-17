@@ -29,13 +29,15 @@ const normalizeLearnedDay = (value: unknown): LearnedDay | null => {
       : undefined;
 
   const lastTranscript = typeof candidate.lastTranscript === "string" ? candidate.lastTranscript : undefined;
+  const source = candidate.source === "daily" || candidate.source === "learn_more" ? candidate.source : undefined;
 
   return {
     dateKey: candidate.dateKey,
     phraseId: candidate.phraseId,
     learnedAt,
     bestScore,
-    lastTranscript
+    lastTranscript,
+    source
   };
 };
 

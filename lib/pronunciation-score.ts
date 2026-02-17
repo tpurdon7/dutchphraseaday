@@ -95,6 +95,11 @@ export const scorePronunciationAttempt = (targetText: string, spokenText: string
     return 0;
   }
 
+  // Exact match after normalization should always be a perfect score.
+  if (normalizedTarget === normalizedSpoken) {
+    return 100;
+  }
+
   const distance = levenshteinDistance(normalizedTarget, normalizedSpoken);
   const maxLength = Math.max(normalizedTarget.length, normalizedSpoken.length);
   const charSimilarity = maxLength ? 1 - distance / maxLength : 1;

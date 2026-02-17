@@ -1,4 +1,5 @@
 import type { Phrase } from "@/lib/types";
+import { extraLearnMorePhrases } from "@/data/learn-more-extras";
 
 export const phrases: Phrase[] = [
   {
@@ -605,4 +606,4 @@ export const phrases: Phrase[] = [
 
 export const PHRASE_COUNT = 100;
 
-export const phraseById = new Map(phrases.map((phrase) => [phrase.id, phrase]));
+export const phraseById = new Map([...phrases, ...extraLearnMorePhrases].map((phrase) => [phrase.id, phrase]));

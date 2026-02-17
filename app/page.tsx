@@ -54,6 +54,7 @@ export default function HomePage() {
     dayNumber,
     phrase,
     learnedDays,
+    learnedDailyCount,
     todayBestScore,
     todayCheckInCompleted,
     totalTypedAttempts,
@@ -77,17 +78,21 @@ export default function HomePage() {
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState("Saved. Nice work today.");
   const [learnButtonOrigin, setLearnButtonOrigin] = useState({ x: 0, y: 0 });
+  const [deckIndex, setDeckIndex] = useState(0);
+  const [deckRevealed, setDeckRevealed] = useState(false);
+  const [deckDirection, setDeckDirection] = useState<"nl_to_en" | "en_to_nl">("nl_to_en");
 
   const dayLabel = useMemo(() => {
-    const learnedForDisplay = Math.min(learnedDays.length, PHRASE_COUNT);
+    const learnedForDisplay = Math.min(learnedDailyCount, PHRASE_COUNT);
     return `Day ${learnedForDisplay} of 100`;
-  }, [learnedDays.length]);
+  }, [learnedDailyCount]);
   const xpProgress = Math.round((xpIntoLevel / 250) * 100);
   const challengeCheckInDone = todayCheckInCompleted;
   const challengeScoreDone = typeof todayBestScore === "number" && todayBestScore >= 90;
   const reviewPhrases = reviewPhraseIds
     .map((id) => phraseById.get(id))
     .filter((item): item is NonNullable<ReturnType<typeof phraseById.get>> => Boolean(item));
+  const activeDeckCard = reviewPhrases.length > 0 ? reviewPhrases[deckIndex % reviewPhrases.length] : null;
   const achievements: { key: AchievementKey; label: string; unlocked: boolean }[] = [
     { key: "streak_3", label: "First 3-day streak", unlocked: currentStreak >= 3 || longestStreak >= 3 },
     { key: "level_5", label: "Level 5 learner", unlocked: level >= 5 },
@@ -254,15 +259,88 @@ export default function HomePage() {
                 Open history
               </Link>
             </div>
-            <p className="mt-1 text-xs text-muted">Review these weaker phrases to lock them in.</p>
-            <div className="mt-3 space-y-2">
-              {reviewPhrases.map((item) => (
-                <div key={item.id} className="rounded-xl border border-stroke bg-slate-50 px-3 py-2">
-                  <p className="text-sm font-semibold text-slate-900">{item.dutch}</p>
-                  <p className="text-xs text-muted">{item.english}</p>
+            <p className="mt-1 text-xs text-muted">Rehearse past cards as flashcards and switch direction anytime.</p>
+
+            {activeDeckCard ? (
+              <div className="mt-3 space-y-3">
+                <div className="flex flex-wrap items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setDeckDirection("nl_to_en");
+                      setDeckRevealed(false);
+                    }}
+                    className={`rounded-xl px-3 py-1.5 text-xs font-semibold transition ${
+                      deckDirection === "nl_to_en"
+                        ? "bg-slate-900 text-white"
+                        : "border border-stroke bg-white text-slate-700 hover:bg-slate-50"
+                    }`}
+                  >
+                    NL → EN
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setDeckDirection("en_to_nl");
+                      setDeckRevealed(false);
+                    }}
+                    className={`rounded-xl px-3 py-1.5 text-xs font-semibold transition ${
+                      deckDirection === "en_to_nl"
+                        ? "bg-slate-900 text-white"
+                        : "border border-stroke bg-white text-slate-700 hover:bg-slate-50"
+                    }`}
+                  >
+                    EN → NL
+                  </button>
+                  <span className="ml-auto rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-700">
+                    {deckIndex + 1}/{reviewPhrases.length}
+                  </span>
                 </div>
-              ))}
-            </div>
+
+                <button
+                  type="button"
+                  onClick={() => setDeckRevealed((current) => !current)}
+                  className="w-full rounded-2xl border border-stroke bg-slate-50 px-4 py-5 text-left transition hover:bg-slate-100"
+                >
+                  <p className="text-[11px] font-semibold uppercase tracking-wide text-muted">
+                    {deckRevealed ? "Answer" : "Prompt"}
+                  </p>
+                  <p className="mt-1 text-lg font-semibold text-slate-900">
+                    {deckRevealed
+                      ? deckDirection === "nl_to_en"
+                        ? activeDeckCard.english
+                        : activeDeckCard.dutch
+                      : deckDirection === "nl_to_en"
+                        ? activeDeckCard.dutch
+                        : activeDeckCard.english}
+                  </p>
+                  <p className="mt-2 text-xs text-muted">Tap card to {deckRevealed ? "hide answer" : "reveal answer"}.</p>
+                </button>
+
+                <div className="grid grid-cols-2 gap-2">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setDeckIndex((current) => (current - 1 + reviewPhrases.length) % reviewPhrases.length);
+                      setDeckRevealed(false);
+                    }}
+                    className="rounded-xl border border-stroke bg-white px-3 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+                  >
+                    Previous
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setDeckIndex((current) => (current + 1) % reviewPhrases.length);
+                      setDeckRevealed(false);
+                    }}
+                    className="rounded-xl bg-slate-900 px-3 py-2 text-sm font-semibold text-white transition hover:bg-slate-800"
+                  >
+                    Next
+                  </button>
+                </div>
+              </div>
+            ) : null}
           </section>
         ) : null}
 

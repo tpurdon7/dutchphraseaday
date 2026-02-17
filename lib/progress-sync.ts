@@ -40,8 +40,9 @@ const normalizeLearnedDays = (value: unknown): LearnedDay[] => {
         : undefined;
 
     const lastTranscript = typeof row.lastTranscript === "string" ? row.lastTranscript : undefined;
+    const source = row.source === "daily" || row.source === "learn_more" ? row.source : undefined;
 
-    rows.push({ dateKey, phraseId, learnedAt, bestScore, lastTranscript });
+    rows.push({ dateKey, phraseId, learnedAt, bestScore, lastTranscript, source });
   }
 
   return rows;

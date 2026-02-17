@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { PHRASE_COUNT, phraseById } from "@/data/phrases";
 import { daysBetweenLocalDates, getLocalDateKey, parseDateKeyToLocalDate } from "@/lib/date";
-import { getDayNumber, getPhraseIdForDay, getProgressPercent } from "@/lib/progress";
+import { getDayNumber, getPhraseIdForDayExcluding, getProgressPercent } from "@/lib/progress";
 import {
   getDailyCheckInByDate,
   getLearnedDays,
@@ -115,7 +115,8 @@ const normalizeRemoteProgress = (value: unknown): ProgressPayload | null => {
           item.bestScore <= 100
             ? Math.round(item.bestScore)
             : undefined,
-        lastTranscript: typeof item.lastTranscript === "string" ? item.lastTranscript : undefined
+        lastTranscript: typeof item.lastTranscript === "string" ? item.lastTranscript : undefined,
+        source: item.source === "daily" || item.source === "learn_more" ? item.source : undefined
       });
     }
   }
@@ -147,6 +148,7 @@ type AppState = {
   dayNumber: number;
   phrase: Phrase | null;
   learnedDays: LearnedDay[];
+  learnedDailyCount: number;
   todayBestScore?: number;
   todayCheckInCompleted: boolean;
   totalTypedAttempts: number;
@@ -163,6 +165,7 @@ type AppState = {
   completeTodayCheckIn: () => void;
   markTodayLearned: () => Promise<void>;
   saveTodaySpeechAttempt: (score: number, transcript: string) => void;
+  markPhrasePracticed: (phraseId: number, score?: number, transcript?: string) => void;
   clearAllProgress: () => void;
 };
 
@@ -177,18 +180,28 @@ export const useAppState = (): AppState => {
 
   useEffect(() => {
     const nowKey = getLocalDateKey();
-    const startDateKey = getOrCreateStartDateKey();
-    const storedLearnedDays = getLearnedDays();
-    const storedTypedAttempts = getTypedAttemptsByDate();
-    const storedDailyCheckIn = getDailyCheckInByDate();
-    const computedDay = getDayNumber(startDateKey, new Date());
+    try {
+      const startDateKey = getOrCreateStartDateKey();
+      const storedLearnedDays = getLearnedDays();
+      const storedTypedAttempts = getTypedAttemptsByDate();
+      const storedDailyCheckIn = getDailyCheckInByDate();
+      const computedDay = getDayNumber(startDateKey, new Date());
 
-    setTodayKey(nowKey);
-    setDayNumber(computedDay);
-    setLearnedDaysState(storedLearnedDays);
-    setTypedAttemptsByDateState(storedTypedAttempts);
-    setDailyCheckInByDateState(storedDailyCheckIn);
-    setHydrated(true);
+      setTodayKey(nowKey);
+      setDayNumber(computedDay);
+      setLearnedDaysState(storedLearnedDays);
+      setTypedAttemptsByDateState(storedTypedAttempts);
+      setDailyCheckInByDateState(storedDailyCheckIn);
+    } catch {
+      // If localStorage is unavailable, keep app usable with in-memory fallback.
+      setTodayKey(nowKey);
+      setDayNumber(1);
+      setLearnedDaysState([]);
+      setTypedAttemptsByDateState({});
+      setDailyCheckInByDateState({});
+    } finally {
+      setHydrated(true);
+    }
   }, []);
 
   const scheduleRemoteSync = useCallback((payload: ProgressPayload) => {
@@ -280,10 +293,39 @@ export const useAppState = (): AppState => {
     };
   }, [hydrated]);
 
-  const phraseId = useMemo(() => getPhraseIdForDay(dayNumber), [dayNumber]);
+  const learnedDailyCount = useMemo(
+    () =>
+      learnedDays.filter(
+        (entry) => entry.phraseId >= 1 && entry.phraseId <= PHRASE_COUNT && entry.source !== "learn_more"
+      ).length,
+    [learnedDays]
+  );
+  const excludedDailyPhraseIds = useMemo(
+    () =>
+      new Set(
+        learnedDays
+          .filter((entry) => entry.phraseId >= 1 && entry.phraseId <= PHRASE_COUNT && entry.dateKey !== todayKey)
+          .map((entry) => entry.phraseId)
+      ),
+    [learnedDays, todayKey]
+  );
+  const phraseId = useMemo(() => getPhraseIdForDayExcluding(dayNumber, excludedDailyPhraseIds), [dayNumber, excludedDailyPhraseIds]);
   const phrase = useMemo(() => phraseById.get(phraseId) ?? null, [phraseId]);
-  const todayEntry = useMemo(() => learnedDays.find((entry) => entry.dateKey === todayKey), [learnedDays, todayKey]);
-  const todayCompleted = Boolean(todayEntry);
+  const todayEntry = useMemo(
+    () => learnedDays.find((entry) => entry.dateKey === todayKey && entry.phraseId === phraseId),
+    [learnedDays, todayKey, phraseId]
+  );
+  const todayCompleted = useMemo(
+    () =>
+      learnedDays.some(
+        (entry) =>
+          entry.dateKey === todayKey &&
+          entry.phraseId >= 1 &&
+          entry.phraseId <= PHRASE_COUNT &&
+          entry.source !== "learn_more"
+      ),
+    [learnedDays, todayKey]
+  );
   const todayCheckInCompleted = dailyCheckInByDate[todayKey] === true;
   const totalTypedAttempts = useMemo(() => sumTypedAttempts(typedAttemptsByDate), [typedAttemptsByDate]);
   const learnedDateKeys = useMemo(() => new Set(learnedDays.map((entry) => entry.dateKey)), [learnedDays]);
@@ -303,7 +345,7 @@ export const useAppState = (): AppState => {
     [learnedDays]
   );
 
-  const progressPercent = useMemo(() => getProgressPercent(learnedDays.length), [learnedDays.length]);
+  const progressPercent = useMemo(() => getProgressPercent(learnedDailyCount), [learnedDailyCount]);
 
   const markTodayLearned = useCallback(async () => {
     if (todayCompleted) {
@@ -318,7 +360,7 @@ export const useAppState = (): AppState => {
       return;
     }
 
-    const next = [...learnedDays, { dateKey: todayKey, phraseId, learnedAt: new Date().toISOString() }];
+    const next = [...learnedDays, { dateKey: todayKey, phraseId, learnedAt: new Date().toISOString(), source: "daily" as const }];
     setLearnedDays(next);
     setLearnedDaysState(next);
     scheduleRemoteSync({
@@ -353,12 +395,12 @@ export const useAppState = (): AppState => {
       setTypedAttemptsByDate(nextTypedAttemptsByDate);
       setTypedAttemptsByDateState(nextTypedAttemptsByDate);
 
-      const targetIndex = learnedDays.findIndex((entry) => entry.dateKey === todayKey);
-      if (targetIndex < 0) {
+      const targetByPhrase = learnedDays.findIndex((entry) => entry.dateKey === todayKey && entry.phraseId === phraseId);
+      if (targetByPhrase < 0) {
         return;
       }
 
-      const existing = learnedDays[targetIndex];
+      const existing = learnedDays[targetByPhrase];
       const updated: LearnedDay = {
         ...existing,
         bestScore: Math.max(existing.bestScore ?? 0, score),
@@ -366,7 +408,7 @@ export const useAppState = (): AppState => {
       };
 
       const next = [...learnedDays];
-      next[targetIndex] = updated;
+      next[targetByPhrase] = updated;
       setLearnedDays(next);
       setLearnedDaysState(next);
       scheduleRemoteSync({
@@ -376,7 +418,57 @@ export const useAppState = (): AppState => {
         dailyCheckInByDate
       });
     },
-    [dailyCheckInByDate, learnedDays, scheduleRemoteSync, todayKey, typedAttemptsByDate]
+    [dailyCheckInByDate, learnedDays, phraseId, scheduleRemoteSync, todayKey, typedAttemptsByDate]
+  );
+
+  const markPhrasePracticed = useCallback(
+    (practicedPhraseId: number, score?: number, transcript?: string) => {
+      if (!Number.isFinite(practicedPhraseId) || !phraseById.has(practicedPhraseId)) {
+        return;
+      }
+
+      const nowKey = getLocalDateKey();
+      const nowIso = new Date().toISOString();
+      const existingIndex = learnedDays.findIndex((entry) => entry.phraseId === practicedPhraseId);
+
+      let next: LearnedDay[];
+      if (existingIndex >= 0) {
+        const existing = learnedDays[existingIndex];
+        const updated: LearnedDay = {
+          ...existing,
+          dateKey: nowKey,
+          learnedAt: nowIso,
+          bestScore:
+            typeof score === "number" && Number.isFinite(score) ? Math.max(existing.bestScore ?? 0, Math.round(score)) : existing.bestScore,
+          lastTranscript: typeof transcript === "string" ? transcript : existing.lastTranscript,
+          source: existing.source === "daily" ? "daily" : "learn_more"
+        };
+        next = [...learnedDays];
+        next[existingIndex] = updated;
+      } else {
+        next = [
+          ...learnedDays,
+          {
+            dateKey: nowKey,
+            phraseId: practicedPhraseId,
+            learnedAt: nowIso,
+            bestScore: typeof score === "number" && Number.isFinite(score) ? Math.round(score) : undefined,
+            lastTranscript: typeof transcript === "string" ? transcript : undefined,
+            source: "learn_more"
+          }
+        ];
+      }
+
+      setLearnedDays(next);
+      setLearnedDaysState(next);
+      scheduleRemoteSync({
+        startDateKey: getStartDateKey() ?? getOrCreateStartDateKey(),
+        learnedDays: next,
+        typedAttemptsByDate,
+        dailyCheckInByDate
+      });
+    },
+    [dailyCheckInByDate, learnedDays, scheduleRemoteSync, typedAttemptsByDate]
   );
 
   const clearAllProgress = useCallback(() => {
@@ -397,6 +489,7 @@ export const useAppState = (): AppState => {
     dayNumber,
     phrase,
     learnedDays,
+    learnedDailyCount,
     todayBestScore: todayEntry?.bestScore,
     todayCheckInCompleted,
     totalTypedAttempts,
@@ -413,6 +506,7 @@ export const useAppState = (): AppState => {
     completeTodayCheckIn,
     markTodayLearned,
     saveTodaySpeechAttempt,
+    markPhrasePracticed,
     clearAllProgress
   };
 };

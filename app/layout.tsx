@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ClerkProvider, SignInButton, SignUpButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { AmsterdamBackground } from "@/components/AmsterdamBackground";
+import { getRegisteredUserCount } from "@/lib/clerk-stats";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -9,13 +10,14 @@ export const metadata: Metadata = {
   description: "Learn 100 practical Dutch sentences in 100 days."
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   const clerkPublishableKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
   const hasClerk = Boolean(clerkPublishableKey && process.env.CLERK_SECRET_KEY);
+  const registeredUserCount = hasClerk ? await getRegisteredUserCount() : null;
   const content = (
     <div className="mx-auto flex min-h-screen w-full max-w-2xl flex-col px-4 pb-6 pt-5 sm:px-6">
       <header className="mb-6 flex items-center justify-between rounded-3xl border border-stroke/80 bg-card/90 px-4 py-3 shadow-soft backdrop-blur">
@@ -32,6 +34,9 @@ export default function RootLayout({
         </Link>
         <div className="flex items-center gap-4">
           <nav className="flex items-center gap-4 text-sm text-muted">
+            <Link href="/learn-more" className="transition hover:text-accent">
+              Want to learn more
+            </Link>
             <Link href="/history" className="transition hover:text-accent">
               History
             </Link>
@@ -39,6 +44,11 @@ export default function RootLayout({
               Settings
             </Link>
           </nav>
+          {typeof registeredUserCount === "number" ? (
+            <span className="rounded-full border border-stroke bg-white/90 px-2.5 py-1 text-[11px] font-semibold text-slate-700">
+              {registeredUserCount.toLocaleString()} accounts
+            </span>
+          ) : null}
           {hasClerk ? (
             <div className="flex items-center gap-2 text-sm">
               <SignedOut>
