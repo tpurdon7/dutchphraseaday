@@ -58,7 +58,11 @@ export const PronunciationCheck = ({
 
     const computed = scorePronunciationAttempt(targetText, spokenText);
     setScore(computed);
-    onResultRef.current?.(computed, spokenText);
+    try {
+      onResultRef.current?.(computed, spokenText);
+    } catch {
+      // Keep local dictation result visible even if external state sync fails.
+    }
   };
 
   useEffect(() => {

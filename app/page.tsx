@@ -8,6 +8,7 @@ import { ConfirmModal } from "@/components/ConfirmModal";
 import { DailyCheckIn } from "@/components/DailyCheckIn";
 import { PhraseCard } from "@/components/PhraseCard";
 import { ProgressBar } from "@/components/ProgressBar";
+import { SpeakExercise } from "@/components/SpeakExercise";
 import { Toast } from "@/components/Toast";
 import { fireStroopwafelConfetti } from "@/lib/stroopwafel-confetti";
 import { useAppState } from "@/lib/useAppState";
@@ -233,6 +234,7 @@ export default function HomePage() {
           bestScore={todayBestScore}
           onSpeechResult={saveTodaySpeechAttempt}
         />
+        <SpeakExercise expectedText={phrase.dutch} onResult={saveTodaySpeechAttempt} />
 
         <DailyCheckIn phrase={phrase.dutch} completed={todayCheckInCompleted} onComplete={completeTodayCheckIn} />
 

@@ -33,11 +33,7 @@ export const PhraseCard = ({ phrase, completed, bestScore, onSpeechResult }: Phr
         Pronunciation: <span className="font-medium text-slate-700">{phrase.pronunciation}</span>
       </p>
       <PronunciationButton text={phrase.dutch} />
-      <PronunciationCheck
-        targetText={phrase.dutch}
-        bestScore={bestScore}
-        onResult={onSpeechResult}
-      />
+      <PronunciationCheck targetText={phrase.dutch} bestScore={bestScore} onResult={onSpeechResult} />
 
       {phrase.example ? (
         <div className="mt-6 rounded-2xl bg-slate-50 p-4">
