@@ -34,9 +34,6 @@ export default async function RootLayout({
         </Link>
         <div className="flex items-center gap-4">
           <nav className="flex items-center gap-4 text-sm text-muted">
-            <Link href="/learn-more" className="transition hover:text-accent">
-              Want to learn more
-            </Link>
             <Link href="/history" className="transition hover:text-accent">
               History
             </Link>
@@ -44,11 +41,6 @@ export default async function RootLayout({
               Settings
             </Link>
           </nav>
-          {typeof registeredUserCount === "number" ? (
-            <span className="rounded-full border border-stroke bg-white/90 px-2.5 py-1 text-[11px] font-semibold text-slate-700">
-              {registeredUserCount.toLocaleString()} accounts
-            </span>
-          ) : null}
           {hasClerk ? (
             <div className="flex items-center gap-2 text-sm">
               <SignedOut>
@@ -76,6 +68,13 @@ export default async function RootLayout({
           ) : null}
         </div>
       </header>
+      {typeof registeredUserCount === "number" ? (
+        <div className="mb-4 flex">
+          <span className="rounded-full border border-stroke bg-white/90 px-2.5 py-1 text-[11px] font-semibold text-slate-700">
+            {registeredUserCount.toLocaleString()} accounts
+          </span>
+        </div>
+      ) : null}
       <main className="animate-rise">{children}</main>
     </div>
   );

@@ -344,6 +344,21 @@ export default function HomePage() {
           </section>
         ) : null}
 
+        <section className="rounded-3xl border border-stroke bg-card p-5 shadow-soft">
+          <div className="flex items-center justify-between gap-3">
+            <div>
+              <h2 className="text-lg font-semibold text-ink">Want to learn more</h2>
+              <p className="mt-1 text-xs text-muted">Practice extra high-frequency phrases whenever you want.</p>
+            </div>
+            <Link
+              href="/learn-more"
+              className="rounded-xl bg-slate-900 px-3 py-2 text-sm font-semibold text-white transition hover:bg-slate-800"
+            >
+              Open
+            </Link>
+          </div>
+        </section>
+
         <p className="text-center text-xs text-muted">
           Day track: {dayNumber} / 100. You only get one sentence per local calendar day.
         </p>
