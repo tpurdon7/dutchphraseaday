@@ -1,0 +1,379 @@
+[
+  {
+    "slug": "gezellig",
+    "dutch": "gezellig",
+    "english_meanings": ["cozy", "pleasant", "socially warm"],
+    "part_of_speech": "adjective",
+    "phonetic": "khuh-zell-ikh",
+    "ipa": "ɣəˈzɛləx",
+    "usage": "Use this for warm, friendly, comfortable situations.",
+    "examples": [
+      { "nl": "Het was een gezellige avond.", "en": "It was a cozy evening." },
+      { "nl": "Dit cafe is heel gezellig.", "en": "This cafe is very cozy." }
+    ],
+    "related": ["lekker", "huis", "koffie"],
+    "level": "A2",
+    "tags": ["culture", "daily", "adjective"]
+  },
+  {
+    "slug": "lekker",
+    "dutch": "lekker",
+    "english_meanings": ["tasty", "nice", "pleasant"],
+    "part_of_speech": "adjective",
+    "phonetic": "lek-kur",
+    "ipa": "ˈlɛkər",
+    "usage": "Use for food, weather, and generally good feelings.",
+    "examples": [
+      { "nl": "De koffie is lekker.", "en": "The coffee is tasty." },
+      { "nl": "Het weer is lekker vandaag.", "en": "The weather is nice today." }
+    ],
+    "related": ["koffie", "broodje", "gezellig"],
+    "level": "A1",
+    "tags": ["food", "daily", "adjective"]
+  },
+  {
+    "slug": "doei",
+    "dutch": "doei",
+    "english_meanings": ["bye", "see you"],
+    "part_of_speech": "interjection",
+    "phonetic": "doo-ee",
+    "usage": "Use this as an informal goodbye.",
+    "examples": [
+      { "nl": "Ik ga nu, doei!", "en": "I am leaving now, bye!" },
+      { "nl": "Doei, tot morgen.", "en": "Bye, see you tomorrow." }
+    ],
+    "related": ["dag", "straks", "morgen"],
+    "level": "A1",
+    "tags": ["greeting", "daily"]
+  },
+  {
+    "slug": "alstublieft",
+    "dutch": "alstublieft",
+    "english_meanings": ["please", "here you go"],
+    "part_of_speech": "interjection",
+    "phonetic": "ahl-stuu-bleeft",
+    "usage": "Use this as a polite formal form of please.",
+    "examples": [
+      { "nl": "Een koffie, alstublieft.", "en": "A coffee, please." },
+      { "nl": "Alstublieft, uw bon.", "en": "Here you go, your receipt." }
+    ],
+    "related": ["alsjeblieft", "dankjewel", "sorry"],
+    "level": "A1",
+    "tags": ["polite", "formal", "daily"]
+  },
+  {
+    "slug": "alsjeblieft",
+    "dutch": "alsjeblieft",
+    "english_meanings": ["please", "here you go"],
+    "part_of_speech": "interjection",
+    "phonetic": "ahl-shuh-bleeft",
+    "usage": "Use this in informal polite requests.",
+    "examples": [
+      { "nl": "Kun je helpen, alsjeblieft?", "en": "Can you help, please?" },
+      { "nl": "Alsjeblieft, een glas water.", "en": "Please, a glass of water." }
+    ],
+    "related": ["alstublieft", "dankjewel", "pardon"],
+    "level": "A1",
+    "tags": ["polite", "daily"]
+  },
+  {
+    "slug": "dankjewel",
+    "dutch": "dankjewel",
+    "english_meanings": ["thank you"],
+    "part_of_speech": "interjection",
+    "phonetic": "dahngk-yuh-vel",
+    "usage": "Use this to thank people in daily conversation.",
+    "examples": [
+      { "nl": "Dankjewel voor de koffie.", "en": "Thank you for the coffee." },
+      { "nl": "Dankjewel, tot snel.", "en": "Thank you, see you soon." }
+    ],
+    "related": ["alsjeblieft", "sorry", "dag"],
+    "level": "A1",
+    "tags": ["polite", "daily", "core"]
+  },
+  {
+    "slug": "hoi",
+    "dutch": "hoi",
+    "english_meanings": ["hi", "hello"],
+    "part_of_speech": "interjection",
+    "phonetic": "hoy",
+    "usage": "Use this informal greeting with friends and coworkers.",
+    "examples": [
+      { "nl": "Hoi, hoe gaat het?", "en": "Hi, how are you?" },
+      { "nl": "Hoi Lisa, alles goed?", "en": "Hi Lisa, all good?" }
+    ],
+    "related": ["dag", "doei", "ja"],
+    "level": "A1",
+    "tags": ["greeting", "daily"]
+  },
+  {
+    "slug": "dag",
+    "dutch": "dag",
+    "english_meanings": ["bye", "hello"],
+    "part_of_speech": "interjection",
+    "phonetic": "dakh",
+    "usage": "Use for hello or goodbye depending on context.",
+    "examples": [
+      { "nl": "Dag, hoe gaat het?", "en": "Hello, how are you?" },
+      { "nl": "Ik ga naar huis, dag!", "en": "I am going home, bye!" }
+    ],
+    "related": ["doei", "hoi", "morgen"],
+    "level": "A1",
+    "tags": ["greeting", "daily"]
+  },
+  {
+    "slug": "ja",
+    "dutch": "ja",
+    "english_meanings": ["yes"],
+    "part_of_speech": "adverb",
+    "phonetic": "yah",
+    "usage": "Use this to confirm or agree.",
+    "examples": [
+      { "nl": "Ja, dat klopt.", "en": "Yes, that is correct." },
+      { "nl": "Ja, graag.", "en": "Yes, please." }
+    ],
+    "related": ["nee", "misschien", "straks"],
+    "level": "A1",
+    "tags": ["core", "daily"]
+  },
+  {
+    "slug": "nee",
+    "dutch": "nee",
+    "english_meanings": ["no"],
+    "part_of_speech": "adverb",
+    "phonetic": "nay",
+    "usage": "Use this to decline politely.",
+    "examples": [
+      { "nl": "Nee, dank je.", "en": "No, thank you." },
+      { "nl": "Nee, ik heb geen tijd.", "en": "No, I do not have time." }
+    ],
+    "related": ["ja", "misschien", "sorry"],
+    "level": "A1",
+    "tags": ["core", "daily"]
+  },
+  {
+    "slug": "misschien",
+    "dutch": "misschien",
+    "english_meanings": ["maybe", "perhaps"],
+    "part_of_speech": "adverb",
+    "phonetic": "mis-kheen",
+    "usage": "Use this when you are unsure.",
+    "examples": [
+      { "nl": "Misschien kom ik morgen.", "en": "Maybe I will come tomorrow." },
+      { "nl": "Misschien is dat beter.", "en": "Maybe that is better." }
+    ],
+    "related": ["ja", "nee", "straks"],
+    "level": "A1",
+    "tags": ["conversation", "daily"]
+  },
+  {
+    "slug": "straks",
+    "dutch": "straks",
+    "english_meanings": ["later", "soon"],
+    "part_of_speech": "adverb",
+    "phonetic": "strahks",
+    "usage": "Use this for something happening later today.",
+    "examples": [
+      { "nl": "Ik bel je straks.", "en": "I will call you later." },
+      { "nl": "Tot straks!", "en": "See you later!" }
+    ],
+    "related": ["morgen", "vandaag", "doei"],
+    "level": "A1",
+    "tags": ["time", "daily"]
+  },
+  {
+    "slug": "morgen",
+    "dutch": "morgen",
+    "english_meanings": ["tomorrow", "morning"],
+    "part_of_speech": "noun",
+    "phonetic": "mor-ghun",
+    "usage": "Use this for tomorrow or in greeting context.",
+    "examples": [
+      { "nl": "Tot morgen.", "en": "See you tomorrow." },
+      { "nl": "Morgen heb ik tijd.", "en": "Tomorrow I have time." }
+    ],
+    "related": ["vandaag", "gisteren", "straks"],
+    "level": "A1",
+    "tags": ["time", "daily"]
+  },
+  {
+    "slug": "gisteren",
+    "dutch": "gisteren",
+    "english_meanings": ["yesterday"],
+    "part_of_speech": "noun",
+    "phonetic": "ghis-tur-un",
+    "usage": "Use this when talking about the previous day.",
+    "examples": [
+      { "nl": "Gisteren was ik thuis.", "en": "Yesterday I was at home." },
+      { "nl": "Gisteren regende het.", "en": "Yesterday it rained." }
+    ],
+    "related": ["vandaag", "morgen", "straks"],
+    "level": "A1",
+    "tags": ["time", "daily"]
+  },
+  {
+    "slug": "vandaag",
+    "dutch": "vandaag",
+    "english_meanings": ["today"],
+    "part_of_speech": "noun",
+    "phonetic": "van-dahkh",
+    "usage": "Use this to refer to the current day.",
+    "examples": [
+      { "nl": "Vandaag leer ik Nederlands.", "en": "Today I am learning Dutch." },
+      { "nl": "Vandaag ben ik druk.", "en": "Today I am busy." }
+    ],
+    "related": ["morgen", "gisteren", "straks"],
+    "level": "A1",
+    "tags": ["time", "daily"]
+  },
+  {
+    "slug": "fiets",
+    "dutch": "fiets",
+    "english_meanings": ["bicycle", "bike"],
+    "part_of_speech": "noun",
+    "phonetic": "feets",
+    "usage": "Common everyday word in Dutch life and transport.",
+    "examples": [
+      { "nl": "Mijn fiets staat buiten.", "en": "My bike is outside." },
+      { "nl": "Ik ga met de fiets naar werk.", "en": "I go to work by bike." }
+    ],
+    "related": ["trein", "station", "werk"],
+    "level": "A1",
+    "tags": ["transport", "daily"]
+  },
+  {
+    "slug": "trein",
+    "dutch": "trein",
+    "english_meanings": ["train"],
+    "part_of_speech": "noun",
+    "phonetic": "trayn",
+    "usage": "Use this for public transport conversations.",
+    "examples": [
+      { "nl": "De trein vertrekt om acht uur.", "en": "The train leaves at eight o clock." },
+      { "nl": "Ik neem de trein naar Utrecht.", "en": "I take the train to Utrecht." }
+    ],
+    "related": ["station", "fiets", "morgen"],
+    "level": "A1",
+    "tags": ["transport", "travel"]
+  },
+  {
+    "slug": "station",
+    "dutch": "station",
+    "english_meanings": ["station"],
+    "part_of_speech": "noun",
+    "phonetic": "stah-see-yon",
+    "usage": "Use this for train and metro travel contexts.",
+    "examples": [
+      { "nl": "Waar is het station?", "en": "Where is the station?" },
+      { "nl": "Het station is dichtbij.", "en": "The station is nearby." }
+    ],
+    "related": ["trein", "fiets", "wc"],
+    "level": "A1",
+    "tags": ["travel", "transport", "directions"]
+  },
+  {
+    "slug": "koffie",
+    "dutch": "koffie",
+    "english_meanings": ["coffee"],
+    "part_of_speech": "noun",
+    "phonetic": "kof-fee",
+    "usage": "Use this in cafes, offices, and home settings.",
+    "examples": [
+      { "nl": "Ik drink graag koffie.", "en": "I like drinking coffee." },
+      { "nl": "Een koffie, alstublieft.", "en": "A coffee, please." }
+    ],
+    "related": ["broodje", "lekker", "alstublieft"],
+    "level": "A1",
+    "tags": ["food", "daily", "restaurant"]
+  },
+  {
+    "slug": "broodje",
+    "dutch": "broodje",
+    "english_meanings": ["sandwich", "roll"],
+    "part_of_speech": "noun",
+    "phonetic": "broh-chuh",
+    "usage": "Use this for ordering food in cafes and lunch places.",
+    "examples": [
+      { "nl": "Ik wil een broodje kaas.", "en": "I want a cheese sandwich." },
+      { "nl": "Dit broodje is lekker.", "en": "This sandwich is tasty." }
+    ],
+    "related": ["koffie", "lekker", "goedkoop"],
+    "level": "A1",
+    "tags": ["food", "restaurant", "daily"]
+  },
+  {
+    "slug": "goedkoop",
+    "dutch": "goedkoop",
+    "english_meanings": ["cheap", "inexpensive"],
+    "part_of_speech": "adjective",
+    "phonetic": "khoot-koop",
+    "usage": "Use this when comparing prices.",
+    "examples": [
+      { "nl": "Dit boek is goedkoop.", "en": "This book is cheap." },
+      { "nl": "Ken je een goedkope winkel?", "en": "Do you know a cheap shop?" }
+    ],
+    "related": ["duur", "koffie", "broodje"],
+    "level": "A1",
+    "tags": ["shopping", "money"]
+  },
+  {
+    "slug": "duur",
+    "dutch": "duur",
+    "english_meanings": ["expensive"],
+    "part_of_speech": "adjective",
+    "phonetic": "duur",
+    "usage": "Use this when something costs a lot.",
+    "examples": [
+      { "nl": "Dat restaurant is duur.", "en": "That restaurant is expensive." },
+      { "nl": "Deze jas is te duur.", "en": "This jacket is too expensive." }
+    ],
+    "related": ["goedkoop", "koffie", "station"],
+    "level": "A1",
+    "tags": ["shopping", "money"]
+  },
+  {
+    "slug": "wc",
+    "dutch": "wc",
+    "english_meanings": ["toilet", "restroom"],
+    "part_of_speech": "noun",
+    "phonetic": "vay-say",
+    "usage": "Use this in public places when asking for the toilet.",
+    "examples": [
+      { "nl": "Waar is de wc?", "en": "Where is the toilet?" },
+      { "nl": "Is er hier een wc?", "en": "Is there a toilet here?" }
+    ],
+    "related": ["station", "pardon", "sorry"],
+    "level": "A1",
+    "tags": ["travel", "daily", "directions"]
+  },
+  {
+    "slug": "huis",
+    "dutch": "huis",
+    "english_meanings": ["house", "home"],
+    "part_of_speech": "noun",
+    "phonetic": "hows",
+    "usage": "Use this for home-related conversation.",
+    "examples": [
+      { "nl": "Ik ben thuis in mijn huis.", "en": "I am at home in my house." },
+      { "nl": "Ons huis is klein maar gezellig.", "en": "Our house is small but cozy." }
+    ],
+    "related": ["werk", "gezellig", "vandaag"],
+    "level": "A1",
+    "tags": ["daily", "home"]
+  },
+  {
+    "slug": "werk",
+    "dutch": "werk",
+    "english_meanings": ["work", "job"],
+    "part_of_speech": "noun",
+    "phonetic": "verk",
+    "usage": "Use this when talking about your job or workplace.",
+    "examples": [
+      { "nl": "Ik ga naar mijn werk.", "en": "I am going to work." },
+      { "nl": "Vandaag heb ik veel werk.", "en": "Today I have a lot of work." }
+    ],
+    "related": ["huis", "fiets", "morgen"],
+    "level": "A1",
+    "tags": ["daily", "work"]
+  }
+]

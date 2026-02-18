@@ -1,0 +1,368 @@
+[
+  {
+    "slug": "thank-you-in-dutch",
+    "english": "Thank you",
+    "dutch": "Dank je wel",
+    "phonetic": "dahngk yuh vel",
+    "ipa": "dɑŋk jə ʋɛl",
+    "usage": "Use this in daily polite conversation when someone helps you.",
+    "examples": [
+      { "nl": "Dank je wel voor je hulp.", "en": "Thank you for your help." },
+      { "nl": "Dank je wel, dat is duidelijk.", "en": "Thank you, that is clear." }
+    ],
+    "alternatives": ["Bedankt", "Hartelijk dank"],
+    "level": "A1",
+    "tags": ["polite", "daily", "core"]
+  },
+  {
+    "slug": "please-in-dutch",
+    "english": "Please",
+    "dutch": "Alsjeblieft",
+    "phonetic": "ahls-yuh-bleeft",
+    "ipa": "ɑlsjəˈblift",
+    "usage": "Use this in informal situations when asking for something.",
+    "examples": [
+      { "nl": "Een koffie, alsjeblieft.", "en": "A coffee, please." },
+      { "nl": "Kun je dat herhalen, alsjeblieft?", "en": "Can you repeat that, please?" }
+    ],
+    "alternatives": ["Alstublieft"],
+    "level": "A1",
+    "tags": ["polite", "daily", "restaurant"]
+  },
+  {
+    "slug": "youre-welcome-in-dutch",
+    "english": "You are welcome",
+    "dutch": "Graag gedaan",
+    "phonetic": "khrahkh khuh-dahn",
+    "usage": "Say this after someone thanks you.",
+    "examples": [
+      { "nl": "Graag gedaan, geen probleem.", "en": "You are welcome, no problem." },
+      { "nl": "Graag gedaan!", "en": "You are welcome!" }
+    ],
+    "alternatives": ["Geen dank", "Geen probleem"],
+    "level": "A1",
+    "tags": ["polite", "daily"]
+  },
+  {
+    "slug": "hello-in-dutch",
+    "english": "Hello",
+    "dutch": "Hallo",
+    "phonetic": "hah-loh",
+    "usage": "Use this neutral greeting in most situations.",
+    "examples": [
+      { "nl": "Hallo, hoe gaat het?", "en": "Hello, how are you?" },
+      { "nl": "Hallo allemaal.", "en": "Hello everyone." }
+    ],
+    "alternatives": ["Hoi", "Goedendag"],
+    "level": "A1",
+    "tags": ["greeting", "daily", "core"]
+  },
+  {
+    "slug": "good-morning-in-dutch",
+    "english": "Good morning",
+    "dutch": "Goedemorgen",
+    "phonetic": "khoo-duh-mor-ghun",
+    "usage": "Use this until around noon.",
+    "examples": [
+      { "nl": "Goedemorgen, alles goed?", "en": "Good morning, everything good?" },
+      { "nl": "Goedemorgen meneer.", "en": "Good morning sir." }
+    ],
+    "alternatives": ["Morgen"],
+    "level": "A1",
+    "tags": ["greeting", "daily"]
+  },
+  {
+    "slug": "good-evening-in-dutch",
+    "english": "Good evening",
+    "dutch": "Goedenavond",
+    "phonetic": "khoo-duh-nah-vont",
+    "usage": "Use this greeting in the evening.",
+    "examples": [
+      { "nl": "Goedenavond, een tafel voor twee.", "en": "Good evening, a table for two." },
+      { "nl": "Goedenavond allemaal.", "en": "Good evening everyone." }
+    ],
+    "alternatives": ["Avond"],
+    "level": "A1",
+    "tags": ["greeting", "restaurant", "daily"]
+  },
+  {
+    "slug": "goodbye-in-dutch",
+    "english": "Goodbye",
+    "dutch": "Tot ziens",
+    "phonetic": "tot zeens",
+    "usage": "Use this as a polite way to say goodbye.",
+    "examples": [
+      { "nl": "Dank je, tot ziens!", "en": "Thank you, goodbye!" },
+      { "nl": "Tot ziens en fijne dag.", "en": "Goodbye and have a nice day." }
+    ],
+    "alternatives": ["Dag", "Doei"],
+    "level": "A1",
+    "tags": ["greeting", "daily", "polite"]
+  },
+  {
+    "slug": "see-you-later-in-dutch",
+    "english": "See you later",
+    "dutch": "Tot later",
+    "phonetic": "tot lah-ter",
+    "usage": "Use this with friends or colleagues when you will meet again soon.",
+    "examples": [
+      { "nl": "Ik ga nu, tot later.", "en": "I am leaving now, see you later." },
+      { "nl": "Tot later op het station.", "en": "See you later at the station." }
+    ],
+    "alternatives": ["Tot straks", "Tot morgen"],
+    "level": "A1",
+    "tags": ["greeting", "daily"]
+  },
+  {
+    "slug": "how-are-you-in-dutch",
+    "english": "How are you?",
+    "dutch": "Hoe gaat het?",
+    "phonetic": "hoo ghaht hut",
+    "usage": "Use this to ask someone how they are doing.",
+    "examples": [
+      { "nl": "Hoi, hoe gaat het?", "en": "Hi, how are you?" },
+      { "nl": "Hoe gaat het met je vandaag?", "en": "How are you today?" }
+    ],
+    "alternatives": ["Alles goed?"],
+    "level": "A1",
+    "tags": ["conversation", "greeting", "daily"]
+  },
+  {
+    "slug": "i-am-fine-in-dutch",
+    "english": "I am fine",
+    "dutch": "Het gaat goed",
+    "phonetic": "hut ghaht khoot",
+    "usage": "Use this as a short positive answer.",
+    "examples": [
+      { "nl": "Met mij gaat het goed.", "en": "I am fine." },
+      { "nl": "Ja hoor, het gaat goed.", "en": "Yes, I am fine." }
+    ],
+    "alternatives": ["Goed", "Prima"],
+    "level": "A1",
+    "tags": ["conversation", "daily"]
+  },
+  {
+    "slug": "my-name-is-in-dutch",
+    "english": "My name is",
+    "dutch": "Ik heet",
+    "phonetic": "ik hayt",
+    "usage": "Use this to introduce yourself.",
+    "examples": [
+      { "nl": "Ik heet Sam.", "en": "My name is Sam." },
+      { "nl": "Hallo, ik heet Emma.", "en": "Hello, my name is Emma." }
+    ],
+    "alternatives": ["Mijn naam is"],
+    "level": "A1",
+    "tags": ["conversation", "introduction", "daily"]
+  },
+  {
+    "slug": "nice-to-meet-you-in-dutch",
+    "english": "Nice to meet you",
+    "dutch": "Leuk je te ontmoeten",
+    "phonetic": "luke yuh tuh ont-moo-ten",
+    "usage": "Use this after you meet someone for the first time.",
+    "examples": [
+      { "nl": "Leuk je te ontmoeten, Anna.", "en": "Nice to meet you, Anna." },
+      { "nl": "Leuk om je te ontmoeten.", "en": "Nice to meet you." }
+    ],
+    "alternatives": ["Aangenaam"],
+    "level": "A1",
+    "tags": ["conversation", "introduction", "polite"]
+  },
+  {
+    "slug": "do-you-speak-english-in-dutch",
+    "english": "Do you speak English?",
+    "dutch": "Spreekt u Engels?",
+    "phonetic": "spraykt uu eng-uls",
+    "usage": "Use this politely when you need language help.",
+    "examples": [
+      { "nl": "Pardon, spreekt u Engels?", "en": "Excuse me, do you speak English?" },
+      { "nl": "Spreek je Engels?", "en": "Do you speak English?" }
+    ],
+    "alternatives": ["Kun je Engels?"],
+    "level": "A1",
+    "tags": ["travel", "conversation", "polite"]
+  },
+  {
+    "slug": "i-dont-understand-in-dutch",
+    "english": "I do not understand",
+    "dutch": "Ik begrijp het niet",
+    "phonetic": "ik buh-grype hut neet",
+    "usage": "Use this when someone speaks too fast or uses unknown words.",
+    "examples": [
+      { "nl": "Sorry, ik begrijp het niet.", "en": "Sorry, I do not understand." },
+      { "nl": "Ik begrijp deze zin niet.", "en": "I do not understand this sentence." }
+    ],
+    "alternatives": ["Ik snap het niet"],
+    "level": "A1",
+    "tags": ["conversation", "travel", "learning"]
+  },
+  {
+    "slug": "can-you-repeat-that-in-dutch",
+    "english": "Can you repeat that?",
+    "dutch": "Kun je dat herhalen?",
+    "phonetic": "kun yuh dat hur-hah-lun",
+    "usage": "Use this when you need someone to say something again.",
+    "examples": [
+      { "nl": "Kun je dat herhalen, alsjeblieft?", "en": "Can you repeat that, please?" },
+      { "nl": "Sorry, kun je dat nog een keer zeggen?", "en": "Sorry, can you say that one more time?" }
+    ],
+    "alternatives": ["Nog een keer, alstublieft"],
+    "level": "A1",
+    "tags": ["conversation", "learning", "travel"]
+  },
+  {
+    "slug": "where-is-the-station-in-dutch",
+    "english": "Where is the station?",
+    "dutch": "Waar is het station?",
+    "phonetic": "vaar is hut stah-see-yon",
+    "usage": "Use this to ask for train station directions.",
+    "examples": [
+      { "nl": "Pardon, waar is het station?", "en": "Excuse me, where is the station?" },
+      { "nl": "Waar is station Amsterdam Centraal?", "en": "Where is Amsterdam Central station?" }
+    ],
+    "alternatives": ["Hoe kom ik bij het station?"],
+    "level": "A1",
+    "tags": ["travel", "directions", "transport"]
+  },
+  {
+    "slug": "how-much-does-it-cost-in-dutch",
+    "english": "How much does it cost?",
+    "dutch": "Hoeveel kost het?",
+    "phonetic": "hoo-vayl kost hut",
+    "usage": "Use this while shopping or ordering.",
+    "examples": [
+      { "nl": "Hoeveel kost dit boek?", "en": "How much does this book cost?" },
+      { "nl": "Hoeveel kost een kaartje?", "en": "How much is one ticket?" }
+    ],
+    "alternatives": ["Wat kost het?"],
+    "level": "A1",
+    "tags": ["shopping", "travel", "money"]
+  },
+  {
+    "slug": "i-would-like-a-coffee-in-dutch",
+    "english": "I would like a coffee",
+    "dutch": "Ik wil graag een koffie",
+    "phonetic": "ik vil khrahkh un kof-fee",
+    "usage": "Use this to order politely in a cafe.",
+    "examples": [
+      { "nl": "Ik wil graag een koffie, alstublieft.", "en": "I would like a coffee, please." },
+      { "nl": "Ik wil graag twee koffies.", "en": "I would like two coffees." }
+    ],
+    "alternatives": ["Een koffie, alsjeblieft"],
+    "level": "A1",
+    "tags": ["restaurant", "travel", "daily"]
+  },
+  {
+    "slug": "can-i-pay-by-card-in-dutch",
+    "english": "Can I pay by card?",
+    "dutch": "Kan ik met pin betalen?",
+    "phonetic": "kan ik met pin buh-tah-lun",
+    "usage": "Use this in shops, cafes, and ticket counters.",
+    "examples": [
+      { "nl": "Kan ik met pin betalen?", "en": "Can I pay by card?" },
+      { "nl": "Kan ik hier met kaart betalen?", "en": "Can I pay by card here?" }
+    ],
+    "alternatives": ["Mag ik met kaart betalen?"],
+    "level": "A1",
+    "tags": ["shopping", "money", "travel"]
+  },
+  {
+    "slug": "excuse-me-in-dutch",
+    "english": "Excuse me",
+    "dutch": "Pardon",
+    "phonetic": "par-don",
+    "usage": "Use this to get attention politely or to pass someone.",
+    "examples": [
+      { "nl": "Pardon, mag ik er langs?", "en": "Excuse me, may I pass?" },
+      { "nl": "Pardon, waar is de wc?", "en": "Excuse me, where is the toilet?" }
+    ],
+    "alternatives": ["Sorry"],
+    "level": "A1",
+    "tags": ["polite", "travel", "daily"]
+  },
+  {
+    "slug": "sorry-in-dutch",
+    "english": "Sorry",
+    "dutch": "Sorry",
+    "phonetic": "so-ree",
+    "usage": "Use this for apologies and small mistakes.",
+    "examples": [
+      { "nl": "Sorry, dat was mijn fout.", "en": "Sorry, that was my mistake." },
+      { "nl": "Sorry dat ik laat ben.", "en": "Sorry that I am late." }
+    ],
+    "alternatives": ["Het spijt me"],
+    "level": "A1",
+    "tags": ["polite", "daily"]
+  },
+  {
+    "slug": "yes-in-dutch",
+    "english": "Yes",
+    "dutch": "Ja",
+    "phonetic": "yah",
+    "usage": "Use this to agree or confirm.",
+    "examples": [
+      { "nl": "Ja, dat klopt.", "en": "Yes, that is correct." },
+      { "nl": "Ja, graag.", "en": "Yes, please." }
+    ],
+    "alternatives": ["Jazeker"],
+    "level": "A1",
+    "tags": ["core", "daily", "conversation"]
+  },
+  {
+    "slug": "no-in-dutch",
+    "english": "No",
+    "dutch": "Nee",
+    "phonetic": "nay",
+    "usage": "Use this to decline politely or answer negatively.",
+    "examples": [
+      { "nl": "Nee, dank je.", "en": "No, thank you." },
+      { "nl": "Nee, dat hoeft niet.", "en": "No, that is not necessary." }
+    ],
+    "alternatives": ["Liever niet"],
+    "level": "A1",
+    "tags": ["core", "daily", "conversation"]
+  },
+  {
+    "slug": "help-in-dutch",
+    "english": "Help",
+    "dutch": "Help",
+    "phonetic": "help",
+    "usage": "Use this in urgent situations or when you need assistance.",
+    "examples": [
+      { "nl": "Help, ik ben de weg kwijt.", "en": "Help, I am lost." },
+      { "nl": "Kun je me helpen?", "en": "Can you help me?" }
+    ],
+    "alternatives": ["Kunt u mij helpen?"],
+    "level": "A1",
+    "tags": ["travel", "emergency", "daily"]
+  },
+  {
+    "slug": "where-is-the-toilet-in-dutch",
+    "english": "Where is the toilet?",
+    "dutch": "Waar is de wc?",
+    "phonetic": "vaar is duh vay-say",
+    "usage": "Use this in stations, restaurants, and public places.",
+    "examples": [
+      { "nl": "Pardon, waar is de wc?", "en": "Excuse me, where is the toilet?" },
+      { "nl": "Waar zijn de toiletten?", "en": "Where are the toilets?" }
+    ],
+    "alternatives": ["Waar is het toilet?"],
+    "level": "A1",
+    "tags": ["travel", "daily", "directions"]
+  },
+  {
+    "slug": "i-am-learning-dutch-in-dutch",
+    "english": "I am learning Dutch",
+    "dutch": "Ik leer Nederlands",
+    "phonetic": "ik lair nay-dur-lants",
+    "usage": "Use this to explain your language level in conversation.",
+    "examples": [
+      { "nl": "Ik leer Nederlands, dus praat rustig.", "en": "I am learning Dutch, so speak slowly." },
+      { "nl": "Ik leer nog Nederlands.", "en": "I am still learning Dutch." }
+    ],
+    "alternatives": ["Ik studeer Nederlands"],
+    "level": "A1",
+    "tags": ["learning", "conversation", "daily"]
+  }
+]
